@@ -35,7 +35,7 @@ prettyF PrettyCfg{..} n =
           else prettyI pc_thousandsSep intPart
       postDecimal =
           if pc_decimals > 0
-          then T.cons pc_decimalSep (T.justifyLeft pc_decimals '0' $ T.pack $ show decPart)
+          then T.cons pc_decimalSep (T.justifyRight pc_decimals '0' $ T.pack $ show decPart)
           else ""
   in preDecimal <> postDecimal
 
