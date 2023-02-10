@@ -29,10 +29,7 @@ prettyF PrettyCfg{..} n =
       lshifti' = abs lshiftr
       intPart = lshifti' `div` tpow
       decPart = lshifti' - intPart * tpow
-      preDecimal =
-          if lshiftr < 0
-          then prettyI pc_thousandsSep (intPart * (-1))
-          else prettyI pc_thousandsSep intPart
+      preDecimal = (if lshiftr < 0 then "-" else "") <> prettyI pc_thousandsSep intPart
       postDecimal =
           if pc_decimals > 0
           then T.cons pc_decimalSep (T.justifyRight pc_decimals '0' $ T.pack $ show decPart)
