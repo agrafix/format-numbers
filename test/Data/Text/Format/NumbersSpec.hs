@@ -28,6 +28,8 @@ spec =
               formatTest (p 0 ' ' ',') 12.1 "12"
               formatTest (p 1 ' ' ',') 12.1 "12,1"
               formatTest (p 2 ' ' ',') 12.1 "12,10"
+              formatTest (p 2 ' ' ',') 0.123 "0,12"
+              formatTest (p 2 ' ' ',') (-0.123) "-0,12"
               formatTest (prettyF $ PrettyCfg 2 Nothing ',') 1200.1 "1200,10"
               formatTest (prettyF $ PrettyCfg 2 Nothing '.') 1200.01 "1200.01"
               formatTest (prettyF $ PrettyCfg 3 Nothing '.') 1200.01 "1200.010"
